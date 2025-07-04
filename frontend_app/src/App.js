@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import SidebarNav from "./components/SidebarNav";
+import DashboardHeader from "./components/DashboardHeader";
+import DashboardMain from "./components/DashboardMain";
 
 // PUBLIC_INTERFACE
 function App() {
@@ -30,25 +32,17 @@ function App() {
     <div className="App">
       <SidebarNav active={sidebarActive} onNavigate={handleSidebarNav} />
       <div className="app-main-content">
-        <header className="App-header">
-          <button
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-          >
-            {theme === "light" ? "🌙 Dark" : "☀️ Light"}
-          </button>
-          <h2 className="dashboard-title" style={{ marginTop: "32px", color: "var(--text-main)" }}>
-            {sidebarActive}
-          </h2>
-        </header>
+        <DashboardHeader />
         <main>
-          <section className="dashboard-content">
-            <p style={{ color: "var(--text-secondary)", margin: "48px auto", maxWidth: "420px", fontSize: "16px" }}>
-              Replace this area with dashboard widgets/cards per design notes. (Sidebar menu working)
-            </p>
-          </section>
+          <DashboardMain />
         </main>
+        <button
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+        >
+          {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+        </button>
       </div>
     </div>
   );

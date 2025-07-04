@@ -1,0 +1,224 @@
+:root {
+  --dashboard-gap: 24px;
+  --dashboard-padding: 32px;
+  --card-radius: 18px;
+  --card-bg: #fff;
+  --primary: #4f6afb;
+  --accent-success: #26c582;
+  --accent-warning: #ff9838;
+  --gray-muted: #adb5bd;
+  --border: #e8e8f7;
+}
+
+.dashboard-main-grid {
+  display: grid;
+  grid-template-areas:
+    "bank orderTime trends"
+    "rating food trends";
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--dashboard-gap);
+  padding: var(--dashboard-padding);
+  min-height: calc(100vh - 72px);
+  width: 100%;
+  background: var(--bg, #fff);
+  box-sizing: border-box;  
+}
+
+@media (max-width: 1200px) {
+  .dashboard-main-grid {
+    grid-template-areas:
+      "bank orderTime"
+      "rating food"
+      "trends trends";
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .dashboard-main-grid {
+    grid-template-areas:
+      "bank"
+      "orderTime"
+      "rating"
+      "food"
+      "trends";
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 18px;
+  }
+}
+
+.bank-balance-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -1px;
+}
+.bank-currency {
+  font-size: 22px;
+  font-weight: 500;
+  vertical-align: super;
+  color: var(--primary);
+}
+
+.bank-growth-indicator {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+}
+.growth-icon {
+  font-size: 17px;
+  color: var(--accent-success);
+  margin-right: 3px;
+}
+.growth-green { color: var(--accent-success); font-size: 15px; font-weight: 600; }
+.growth-muted { color: var(--gray-muted); font-size: 13px; margin-left: 6px; }
+
+.bank-bar-graph {
+  margin-top: 18px;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 42px;
+  width: 100%;
+  min-width: 80px;
+  max-width: 170px;
+}
+.bar {
+  background: var(--primary);
+  border-radius: 6px;
+  width: 12px;
+  min-height: 10px;
+  transition: height 0.5s;
+  opacity: 0.74;
+}
+.bank-label.muted {
+  color: var(--gray-muted);
+  font-size: 13px;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.order-donut-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.order-donut {
+  margin-left: 8px;
+}
+.donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.donut-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+.dot {
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  margin-right: 3px;
+  display: inline-block;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px #e3e4ec84;
+}
+.legend-label { color: var(--text-main, #222); min-width: 62px; }
+.legend-perc { font-weight: 500; color: var(--primary); min-width: 36px; text-align: right; }
+
+.stat-circles {
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: 6px;
+}
+.stat-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.stat-percent {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: -35px;
+}
+.stat-label {
+  font-size: 14px;
+  color: var(--gray-muted);
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.food-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.food-list-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 16px;
+  font-weight: 500;
+}
+.food-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 8px;
+  border: 2px solid #f7f7fa;
+}
+.food-name {
+  flex: 1;
+  color: var(--text-main, #222);
+}
+.food-qty {
+  color: var(--gray-muted);
+  font-size: 16px;
+  min-width: 31px;
+  text-align: right;
+  font-weight: 600;
+}
+
+.trends-main-value {
+  font-size: 31px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0px;
+}
+.trends-label {
+  color: var(--gray-muted);
+  font-size: 14px;
+  margin-bottom: 9px;
+  margin-top: 3px;
+}
+.trends-line {
+  width: 100%;
+  height: 46px;
+  margin-top: 10px;
+  background: none;
+}
+
+.view-report {
+  color: var(--primary);
+  text-decoration: underline;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.18s;
+  font-weight: 500;
+}
+.view-report:hover {
+  color: #2563d1;
+  text-decoration-thickness: 2px;
+}
