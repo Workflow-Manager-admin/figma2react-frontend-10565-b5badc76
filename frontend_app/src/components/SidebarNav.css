@@ -1,0 +1,118 @@
+:root {
+  --sidebar-bg: #F8F9FB;
+  --nav-active-bg: #EEF0FB;
+  --primary-blue: #4F5DCA;
+  --text-main: #202224;
+  --text-secondary: #585D6A;
+  --sidebar-width: 220px;
+}
+.sidebar-nav {
+  background: var(--sidebar-bg);
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 24px 0;
+  box-shadow: 1px 0 0 0 #EAEBED;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 110;
+  transition: width 0.2s;
+}
+.sidebar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 56px;
+  margin-bottom: 32px;
+}
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 2rem;
+  border-radius: 12px;
+  background: var(--nav-active-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0 0 0 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.sidebar-menu-item {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  gap: 16px;
+  padding: 0 24px 0 32px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: none;
+  transition: background 0.15s, color 0.15s;
+  position: relative;
+  user-select: none;
+}
+.sidebar-menu-item:focus:not(.active) {
+  background: #eef0fb40;
+}
+.sidebar-menu-item.active {
+  background: var(--nav-active-bg);
+  color: var(--primary-blue);
+}
+.sidebar-menu-item.active .sidebar-icon svg {
+  stroke: var(--primary-blue);
+}
+.sidebar-menu-item:hover:not(.active) {
+  background: #e4e8fa4d;
+  color: var(--primary-blue);
+}
+.sidebar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+}
+.sidebar-label {
+  flex: 1;
+  white-space: nowrap;
+  font-size: 16px;
+  color: inherit;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Responsive: collapse to icons below 900px */
+@media (max-width: 900px) {
+  .sidebar-nav {
+    width: 66px;
+    min-width: 66px;
+    padding: 18px 0;
+  }
+  .sidebar-label {
+    display: none;
+  }
+  .sidebar-menu-item {
+    padding: 0 10px 0 15px;
+    justify-content: center;
+  }
+  .sidebar-logo {
+    height: 48px;
+  }
+}

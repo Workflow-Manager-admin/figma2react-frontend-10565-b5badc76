@@ -22,10 +22,12 @@
 }
 
 .App {
-  text-align: center;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  text-align: initial;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -41,16 +43,35 @@
 }
 
 .App-header {
-  background-color: var(--bg-secondary);
-  min-height: 100vh;
+  background-color: var(--bg-card, #ffffff);
+  min-height: 64px;
+  height: 64px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--text-primary);
+  justify-content: flex-end;
+  width: 100%;
+  box-shadow: 0 1px 0 0 var(--border-color, #EAEBED);
+  padding: 0 32px 0 0;
+  font-size: 18px;
+  color: var(--text-main, #202224);
   transition: background-color 0.3s ease;
   position: relative;
+}
+
+.app-main-content {
+  margin-left: var(--sidebar-width, 220px);
+  flex: 1;
+  min-height: 100vh;
+  background: var(--bg-main, #F8F9FB);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .app-main-content {
+    margin-left: 66px;
+  }
 }
 
 .App-link {
