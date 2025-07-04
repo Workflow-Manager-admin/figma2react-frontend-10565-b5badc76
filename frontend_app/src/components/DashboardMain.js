@@ -151,7 +151,7 @@ function StatCircle({ percent, color, label }) {
           style={{ transition: "stroke-dasharray 0.6s" }}
         />
       </svg>
-      <div className="stat-percent" style={{ color }}>{percent}%</div>
+      <div className="stat-percent" style={{ color: '#4f6afb', textAlign: 'justify' }}>{percent}%</div>
       <div className="stat-label">{label}</div>
     </div>
   );
