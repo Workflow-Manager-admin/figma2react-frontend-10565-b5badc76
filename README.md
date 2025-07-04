@@ -1,1 +1,0 @@
-# figma2react-frontend-10565-b5badc76
